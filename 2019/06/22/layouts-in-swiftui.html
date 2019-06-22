@@ -77,6 +77,36 @@ most projects. It is often used for an outer navigation component to wrap inner 
 
 <p><img src="/assets/screenshot1.png" alt="Result" /></p>
 
+<p>To pass values into your child views:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Layout</span><span class="o">&lt;</span><span class="kt">Content</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">View</span> <span class="k">where</span> <span class="kt">Content</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+  <span class="k">let</span> <span class="nv">content</span><span class="p">:</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Content</span>
+
+  <span class="nf">init</span><span class="p">(</span><span class="kd">@ViewBuilder</span> <span class="nv">content</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Content</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="n">content</span>
+  <span class="p">}</span>
+
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">VStack</span> <span class="p">{</span>
+      <span class="kt">Text</span><span class="p">(</span><span class="s">"Put layout here, like a header"</span><span class="p">)</span>
+      <span class="c1">// pass context into child, a string in this case</span>
+      <span class="c1">// but could be any kind of object</span>
+      <span class="nf">content</span><span class="p">(</span><span class="s">"Context!"</span><span class="p">)</span>
+      <span class="kt">Text</span><span class="p">(</span><span class="s">"More stuff down here, like a footer"</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Use like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Layout</span> <span class="p">{</span> <span class="n">context</span> <span class="k">in</span>
+  <span class="kt">Text</span><span class="p">(</span><span class="s">"Hi, I'm rendered inside the layout!"</span><span class="p">)</span>
+  <span class="kt">Text</span><span class="p">(</span><span class="s">"Me too!"</span><span class="p">)</span>
+  <span class="kt">Text</span><span class="p">(</span><span class="s">"Context is: </span><span class="se">\(</span><span class="n">context</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
   </div><a class="u-url" href="/2019/06/22/layouts-in-swiftui.html" hidden></a>
 </article>
 
