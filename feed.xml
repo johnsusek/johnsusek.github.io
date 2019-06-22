@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://johnsusek.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://johnsusek.github.io/" rel="alternate" type="text/html" /><updated>2019-06-22T11:06:15-05:00</updated><id>https://johnsusek.github.io/feed.xml</id><title type="html">SwiftUI Patterns &amp;amp; Techniques</title><entry><title type="html">Create your own bindings to control behavior</title><link href="https://johnsusek.github.io/2019/06/22/create-your-own-binding.html" rel="alternate" type="text/html" title="Create your own bindings to control behavior" /><published>2019-06-22T00:00:00-05:00</published><updated>2019-06-22T00:00:00-05:00</updated><id>https://johnsusek.github.io/2019/06/22/create-your-own-binding</id><content type="html" xml:base="https://johnsusek.github.io/2019/06/22/create-your-own-binding.html">&lt;p&gt;While investigating the flux pattern for use with SwiftUI, I needed a way 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://johnsusek.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://johnsusek.github.io/" rel="alternate" type="text/html" /><updated>2019-06-22T11:07:25-05:00</updated><id>https://johnsusek.github.io/feed.xml</id><title type="html">SwiftUI Patterns &amp;amp; Techniques</title><entry><title type="html">Create your own bindings to control behavior</title><link href="https://johnsusek.github.io/2019/06/22/create-your-own-binding.html" rel="alternate" type="text/html" title="Create your own bindings to control behavior" /><published>2019-06-22T00:00:00-05:00</published><updated>2019-06-22T00:00:00-05:00</updated><id>https://johnsusek.github.io/2019/06/22/create-your-own-binding</id><content type="html" xml:base="https://johnsusek.github.io/2019/06/22/create-your-own-binding.html">&lt;p&gt;While investigating the flux pattern for use with SwiftUI, I needed a way 
 to commit mutations for things like a Toggle which just bind directly to
 a variable. By creating your own binding and using &lt;code class=&quot;highlighter-rouge&quot;&gt;getValue&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;setValue&lt;/code&gt;, you
 can add your own custom behavior when the binding is get/set.&lt;/p&gt;
@@ -52,6 +52,8 @@ most projects. It is often used for an outer navigation component to wrap inner 
 &lt;p&gt;Results in this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/screenshot1.png&quot; alt=&quot;Result&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;p&gt;To pass values into your child views:&lt;/p&gt;
 
